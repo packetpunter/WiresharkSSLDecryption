@@ -3,7 +3,10 @@ This tool sets an SSLKEYLOG file for Firefox to consume for storing temporary SS
 The file is relevant for wireshark to decrypt the TLS transactions, so we may run performance analysis on the HTTP streams.
 This tool will setup the key log file, start the capture for 60 seconds, and open firefox developer edition to the URL the specified website for analysis. It assumes the directory will be ~/investigations and makes directories based off Date and URL that is being investigated.
 
-## Run on MacOS
+## Requirements - MacOS
+This requires both Wireshark (including TShark), and Firefox Development Edition to run this tool. 
+
+## Run - MacOS
 The script will run as follows in the newly default ZSH shell:
 ```bash
 ----------------------------------------------------------------------------------------------------------------------------------
