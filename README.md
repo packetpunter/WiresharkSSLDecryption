@@ -4,7 +4,7 @@ The file is relevant for wireshark to decrypt the TLS transactions, so we may ru
 
 ## Run on MacOS
 The script will run as follows in the newly default ZSH shell:
-`
+```bash
 ~/code/Wireshark-SSLDecrypt-MacOS » ./start-capture.zsh                                                        130 ↵ blue@mjolnir
 1. en0 (Ethernet)
 2. llw0
@@ -49,15 +49,15 @@ Capturing on 'Ethernet: en0'
 ***************************  CAPTURE COMPLETE *****************************
       HTTP analysis saved into http_analysis.txt in Project Dir
 ***************************************************************************
-`
+```
 
 ## Output Files
 An example from MacOS:
-`
+```bash
 ~/investigations/July_13_2021 » ll                                                                                                                                                                                           blue@mjolnir
 total 51760
 -rw-r--r--  1 blue  staff   7.2K Jul 13 08:59 http_analysis.txt
 -rw-r--r--@ 1 blue  staff    43K Jul 13 09:08 key.log
 -rw-r--r--  1 blue  staff    23M Jul 13 08:59 ssl_wireshark_debug.txt
 -rw-------  1 blue  staff   1.9M Jul 13 08:59 www.reddit.com.pcapng
-`
+```
