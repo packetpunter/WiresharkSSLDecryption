@@ -1,4 +1,4 @@
-# A capture tool
+# A capture tool for TLS Traffic Analysis in Wireshark
 This tool sets an SSLKEYLOG file for Firefox to consume for storing temporary SSL/TLS keys for HTTPS sessions in Firefox.
 The file is relevant for wireshark to decrypt the TLS transactions, so we may run performance analysis on the HTTP streams.
 
@@ -37,7 +37,7 @@ Enter URL to start inspecting in Firefox (e.g. google.com or www.reddit.com): ww
                                Initialized
 *      Current Subject:				www.reddit.com
 *      Project Directory:			/Users/blue/investigations/July_13_2021/
-*      Setting SSLKEYLOGFILE
+*      Setting SSLKEYLOGFILE			/Users/blue/investigations/July_13_2021/key.log
 *      Capture Interface ID is Set To		1
 *      Starting and saving Tshark Capture to	/Users/blue/investigations/July_13_2021//www.reddit.com.pcapng
 *
