@@ -6,7 +6,8 @@ This tool will setup the key log file, start the capture for 60 seconds, and ope
 ## Run on MacOS
 The script will run as follows in the newly default ZSH shell:
 ```bash
-~/code/Wireshark-SSLDecrypt-MacOS » ./start-capture.zsh                                                        130 ↵ blue@mjolnir
+----------------------------------------------------------------------------------------------------------------------------------
+~/code/Wireshark-SSLDecrypt-MacOS(main*) » ./start-capture-macos.zsh                                                 blue@mjolnir
 1. en0 (Ethernet)
 2. llw0
 3. utun0
@@ -33,20 +34,24 @@ The script will run as follows in the newly default ZSH shell:
 24. sshdump (SSH remote capture)
 25. udpdump (UDP Listener remote capture)
 Enter interface id# above to capture SSL traffic on: 1
-Enter URL to start inspecting in Firefox (e.g. google.com or www.reddit.com): www.reddit.com
+
+NOTE: this program will capture traffic over TCP 80,444 and QUIC.
+NOTE: the capture will capture traffic for this domain (and corresponding IP) ONLY.
+
+Enter URL to monitor: www.reddit.com
 ************************** Investigation Project **************************
                                Initialized
 *      Current Subject:				www.reddit.com
-*      Project Directory:			/Users/blue/investigations/July_13_2021/
-*      Setting SSLKEYLOGFILE			/Users/blue/investigations/July_13_2021/key.log
+*      Project Directory:			/Users/blue/investigations/July_13_2021/www.reddit.com
+*      Setting SSLKEYLOGFILE			/Users/blue/investigations/July_13_2021/www.reddit.com/key.log
 *      Capture Interface ID is Set To		1
-*      Starting and saving Tshark Capture to	/Users/blue/investigations/July_13_2021//www.reddit.com.pcapng
+*      Starting and saving Tshark Capture to	/Users/blue/investigations/July_13_2021/www.reddit.com/www.reddit.com.pcapng
 *
-*      WARNING: THE TSHARK WILL AUTO END IN 80 SECONDS!!!!
+*      WARNING: THE TSHARK WILL END IN 60 SECONDS
 ***************************************************************************
 Project initalized, starting capture, opening Firefox Developer Edition..
 Capturing on 'Ethernet: en0'
-3720
+2554
 ***************************  CAPTURE COMPLETE *****************************
       HTTP analysis saved into http_analysis.txt in Project Dir
 ***************************************************************************
