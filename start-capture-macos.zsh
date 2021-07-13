@@ -10,7 +10,7 @@ echo "NOTE: the capture will capture traffic for this domain (and corresponding 
 echo ""
 read "domain?Enter URL to monitor: "
 
-fulldir=~/investigations/$(eval $date_cmd)/$subject
+fulldir=~/investigations/$(eval $date_cmd)/$domain
 
 pcap=$fulldir/$domain.pcapng
 
