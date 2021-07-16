@@ -13,10 +13,12 @@ read "domain?Enter URL to monitor: "
 fulldir=~/investigations/$(eval $date_cmd)/$domain
 
 pcap=$fulldir/$domain.pcapng
+pcapnew=$fulldir/$domain-decrypt.pcapng
 
 mkdir -p $fulldir
 
 keyfile=$fulldir/key.log
+debugfile=$fulldir/ssl_wireshark_debug.txt
 
 export SSLKEYLOGFILE=$fulldir/key.log
 
@@ -36,7 +38,10 @@ open -n /Applications/Firefox\ Developer\ Edition.app --args $domain
 
 tshark -i $interface -a duration:60 -o tls.keylog_file:$keyfile -w $pcap tcp port 80 or tcp port 443 or udp port 443 and \(dst $domain or src $domain\)
 
-tshark -r $pcap -q -o "tls.debug_file:$fulldir/ssl_wireshark_debug.txt" -o "tls.keylog_file:$keyfile" -o "tls.desegment_ssl_records: TRUE" -o "tls.desegment_ssl_application_data: TRUE" -z conv,ip -z expert -z http,stat -z http_req,tree -z http_srv,tree -z http,tree -z http2,tree > $fulldir/http_analysis.txt
+tshark -r $pcap -q -o "tls.debug_file:$debugfile" -o "tls.keylog_file:$keyfile" -o "tls.desegment_ssl_records: TRUE" -o "tls.desegment_ssl_application_data: TRUE" -z conv,ip -z expert -z http,stat -z http_req,tree -z http_srv,tree -z http,tree -z http2,tree > $fulldir/http_analysis.txt
+
+echo "* Writing decrypted pcapng file to $pcapnew *"
+editcap --inject-secrets tls,$keyfile $pcap $pcapnew
 
 echo "***************************  CAPTURE COMPLETE *****************************"
 echo "      HTTP analysis saved into "http_analysis.txt" in Project Dir"
